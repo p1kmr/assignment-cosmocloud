@@ -1,24 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { FormContext, boxReducer, initialFormState } from './form-context/FormContext';
+import { FormWrapper } from './components/FormWrapper';
+import { useMemo, useReducer } from 'react';
 
 function App() {
+  const [formState, formDispatch] = useReducer(boxReducer, initialFormState);
+  const formContextValue = useMemo(() => {
+    return {
+      formState,
+      formDispatch,
+    };
+  }, [formState]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+      <FormContext.Provider value={formContextValue}>
+        <FormWrapper/>
+      </FormContext.Provider>
+       
+   
   );
 }
 
