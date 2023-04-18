@@ -81,9 +81,7 @@ export const Form = (props) => {
                 <DeleteIcon />
               </IconButton>
             </Grid>
-
-
-            {/* {singleForm.child && singleForm.child.length > 0 && (
+            {singleForm.child && singleForm.child.length > 0 && (
               <Grid item xs={12} sx={{ marginLeft: `${singleForm.parentId ? "30" : "0"}px` }}>
                 <Form
                   forms={singleForm.child}
@@ -93,7 +91,7 @@ export const Form = (props) => {
                   parentId={singleForm.fieldId}
                 />
               </Grid>
-            )} */}
+            )}
 
           </Grid>
         )
